@@ -13,9 +13,11 @@ def HomePage():
 
 @app.route("/calculate", methods = ["GET"])
 def Calculator():
+
     '''
     For requesting data or inputs from postman we pass the request in the form of json
     '''
+
     operation = request.json["operation"]
     number1 = request.json["number1"]
     number2 = request.json["numnber2"]
@@ -31,13 +33,13 @@ def Calculator():
     else:
         result = int(number1) ** int(number2)
 
-    return jsonify(result)
+    #return jsonify(result)
 
     '''
     we can return the result without using jsonify as well. Written below
     '''
 
-    return f"The result is {result}"
+    return f"The operation is {operation} and the result is {result}"
 
 if __name__=="__main__":
     app.run(port = 81, debug=True)
